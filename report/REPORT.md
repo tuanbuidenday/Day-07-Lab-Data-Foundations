@@ -233,19 +233,3 @@ Một điểm cần quan sát là nhóm nào thiết kế metadata tốt thườ
 
 **Nếu làm lại, tôi sẽ thay đổi gì trong data strategy?**  
 Tôi sẽ thêm metadata chi tiết hơn như `audience`, `section_title`, `last_updated`, và `public_internal`. Tôi cũng sẽ thử custom chunker theo markdown headings để mỗi chunk luôn có tiêu đề section, giúp agent có context rõ hơn khi trả lời.
-
----
-
-## Tự Đánh Giá
-
-| Tiêu chí                    | Loại    | Điểm tự đánh giá |
-| --------------------------- | ------- | ---------------- |
-| Warm-up                     | Cá nhân | 5 / 5            |
-| Document selection          | Nhóm    | 9 / 10           |
-| Chunking strategy           | Nhóm    | 13 / 15          |
-| My approach                 | Cá nhân | 10 / 10          |
-| Similarity predictions      | Cá nhân | 4 / 5            |
-| Results                     | Cá nhân | 8 / 10           |
-| Core implementation (tests) | Cá nhân | 30 / 30          |
-| Demo                        | Nhóm    | 4 / 5            |
-| **Tổng**                    |         | **83 / 100**     |
