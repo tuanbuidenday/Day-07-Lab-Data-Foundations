@@ -118,8 +118,8 @@ chunks = chunker.chunk(document_text)
 | Thành viên | Strategy                           | Retrieval Score (/10) | Điểm mạnh                                         | Điểm yếu                     |
 | ---------- | ---------------------------------- | --------------------- | ------------------------------------------------- | ---------------------------- |
 | Tôi        | RecursiveChunker + metadata filter | 8                     | Chunk coherent, filter theo category/language tốt | Phụ thuộc metadata đúng      |
-| Bạn A      | FixedSizeChunker overlap 50        | 6                     | Đơn giản, chunk count ổn định                     | Dễ cắt giữa câu/section      |
-| Bạn B      | SentenceChunker 4 câu/chunk        | 7                     | Chunk dễ đọc, ít cắt câu                          | Một số chunk quá rộng chủ đề |
+| Bạn Dũng   | FixedSizeChunker overlap 50        | 6                     | Đơn giản, chunk count ổn định                     | Dễ cắt giữa câu/section      |
+| Bạn Thắng  | SentenceChunker 4 câu/chunk        | 7                     | Chunk dễ đọc, ít cắt câu                          | Một số chunk quá rộng chủ đề |
 
 **Strategy nào tốt nhất cho domain này? Tại sao?**  
 `RecursiveChunker` tốt nhất cho domain này vì tài liệu có paragraph và markdown sections rõ. Khi kết hợp với metadata filter, top-3 thường chứa chunk đúng tài liệu, trong khi search thuần bằng `_mock_embed` dễ nhiễu vì mock embedding không hiểu nghĩa thật.
@@ -229,7 +229,7 @@ Khi bỏ metadata filter và chỉ dùng `_mock_embed`, query về vector store 
 Fixed-size chunking dễ kiểm soát số chunk và dễ debug, nhưng không nên dùng một mình cho markdown/notes có cấu trúc rõ. Sentence-based chunking giúp chunk dễ đọc hơn, nhưng nếu câu dài hoặc nhiều ý trong một câu thì chunk vẫn có thể quá rộng.
 
 **Điều hay nhất tôi học được từ nhóm khác (qua demo):**  
-[Cập nhật sau demo] Một điểm cần quan sát là nhóm nào thiết kế metadata tốt thường có retrieval ổn định hơn nhóm chỉ đổi model/chunk size. Retrieval quality phụ thuộc nhiều vào data strategy, không chỉ embedding.
+Một điểm cần quan sát là nhóm nào thiết kế metadata tốt thường có retrieval ổn định hơn nhóm chỉ đổi model/chunk size. Retrieval quality phụ thuộc nhiều vào data strategy, không chỉ embedding.
 
 **Nếu làm lại, tôi sẽ thay đổi gì trong data strategy?**  
 Tôi sẽ thêm metadata chi tiết hơn như `audience`, `section_title`, `last_updated`, và `public_internal`. Tôi cũng sẽ thử custom chunker theo markdown headings để mỗi chunk luôn có tiêu đề section, giúp agent có context rõ hơn khi trả lời.
